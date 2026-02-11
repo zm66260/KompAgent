@@ -1,0 +1,58 @@
+{
+  "name": "spatial-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "全空间智能体 - Spatial Intelligence Agent Platform based on DeepAgents",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter \"./libs/*\" build",
+    "clean": "pnpm --filter \"./libs/*\" clean",
+    "typecheck": "pnpm --filter \"./libs/*\" typecheck",
+    "lint": "eslint libs examples",
+    "lint:fix": "eslint libs examples --fix",
+    "format": "prettier --write \"libs/**/*.{ts,js,json,md}\" \"examples/**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"libs/**/*.{ts,js,json,md}\" \"examples/**/*.{ts,js,json,md}\"",
+    "test": "pnpm format:check && pnpm lint && pnpm --filter \"./libs/*\" test",
+    "test:unit": "pnpm --filter \"./libs/*\" test:unit",
+    "test:int": "pnpm --filter \"./libs/*\" test:int",
+    "dev": "concurrently \"pnpm dev:frontend\" \"pnpm dev:backend\"",
+    "dev:frontend": "pnpm --filter @spatial-agent/frontend dev",
+    "dev:backend": "cd backend && python main.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spatial-agent/spatial-agent.git"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "spatial",
+    "langgraph",
+    "langchain",
+    "typescript",
+    "llm",
+    "gis"
+  ],
+  "author": "Spatial Agent Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^10.0.1",
+    "@tsconfig/recommended": "^1.0.13",
+    "@types/node": "^22.13.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^15.11.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.23.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
